@@ -7,17 +7,26 @@ public class лабораторная {
         int a = in.nextInt();
         int b = in.nextInt();
         int c = a * (-1);
-        if (b==0)
+        if ((b==0) || ((a==0) && (b < 0)))
             System.out.println("Решения нет");
         else
-            if ((a < 0 && b < 0) || (a > 0 && b > 0))  {
-                System.out.println("x <= " + "" + c + " "+ "and" + " "  + "x > 0");
-            } else {
-                if (a < 0 && b > 0) {
-                    System.out.println("x >= " + "" + c + " "+ "and" + " "  + "x < 0");
+            if ((a==0) && (b > 0))
+                System.out.println("x < 0" + " " + "and" + " " + "x > 0");
+            else
+                if ((a < 0 && b < 0))  {
+                // Если обе переменные отрицательны, то выводим ответ по схеме выше
+                    System.out.println("x <= " + "" + c + " "+ "and" + " "  + "x > 0");
                 } else {
-                    System.out.println("x >= " + "" + c + " "+ "and" + " "  + "x < 0");
+                    if (a > 0 && b > 0)
+                        System.out.println("x <= " + "" + c + " "+ "or" + " "  + "x > 0");
+                    else
+                        if (a < 0 && b > 0) {
+                    // Если а отрицательна, а b положительна, то выводим ответ по схеме выше
+                            System.out.println("x >= " + "" + c + " "+ "or" + " "  + "x < 0");
+                        } else {
+                            System.out.println("x >= " + "" + c + " "+ "and" + " "  + "x < 0");
             }
         }
     }
 }
+
